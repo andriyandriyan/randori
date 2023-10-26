@@ -1,0 +1,22 @@
+---
+import { Icon } from 'astro-icon';
+
+export interface Props {
+	icon: string;
+	title: string;
+	description: string;
+}
+
+const { icon, title, description } = Astro.props;
+---
+<div class="bg-white shadow-lg rounded-lg mb-8 p-4 flex items-center">
+  <div class="mr-6">
+    <div class="w-14 h-14 rounded-full bg-primary-500 flex items-center justify-center">
+      <Icon name={`mdi:${icon}`} class="text-white h-8" />
+    </div>
+  </div>
+  <div>
+    <h4 class="font-['Poppins'] font-semibold text-lg mb-2">{title}</h4>
+    <p>{description}</p>
+  </div>
+</div>

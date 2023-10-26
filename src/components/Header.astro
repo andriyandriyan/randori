@@ -1,0 +1,109 @@
+---
+const menus = [
+  {
+    label: 'Fitur',
+    link: '#fitur',
+  },
+  {
+    label: 'Paket & Harga',
+    link: '#paket-dan-harga',
+  },
+];
+---
+<header class="sticky top-0 shadow bg-white z-[1]">
+  <div class="max-w-screen-lg mx-auto relative">
+    <nav
+      class="relative flex items-center justify-between p-4 lg:justify-start"
+    >
+      <a href="/">
+        <img
+          src="/logo-randori-hor.webp"
+          alt="Logo Randori"
+          class="h-8 md:h-10 w-auto"
+          width="262"
+          height="40"
+        />
+      </a>
+      <div class="hidden md:flex justify-end basis-auto items-center flex-grow">
+        <ul class="relative ml-auto flex">
+          {
+            menus.map((menu) => (
+              <li class="px-4">
+                <a
+                  href={menu.link}
+                  class="mr-7 last:mr-0 font-['Poppins'] font-semibold tracking-wider hover:text-primary-500"
+                >
+                  {menu.label}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+      <button id="menu-btn" class="block md:hidden" aria-label="Menu">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="icon icon-tabler icon-tabler-menu-2"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke="currentColor"
+          fill="none"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+          <path d="M4 6l16 0"></path>
+          <path d="M4 12l16 0"></path>
+          <path d="M4 18l16 0"></path>
+        </svg>
+      </button>
+    </nav>
+    <ul id="mobile-menu" class="bg-white md:hidden absolute w-full hidden">
+      {
+        menus.map((menu) => (
+          <li class="p-4">
+            <a
+              href={menu.link}
+              class="font-['Poppins'] font-semibold tracking-wider hover:text-primary-500"
+            >
+              {menu.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuButton = document.getElementById('menu-btn');
+    menuButton?.addEventListener('click', () => {
+      mobileMenu?.classList.toggle('hidden');
+      mobileMenu?.classList.toggle('block');
+    });
+
+    const headerLinks =
+      document.querySelectorAll<HTMLAnchorElement>('header ul a');
+    headerLinks.forEach((link) => {
+      const { href } = window.location;
+      if (link.href === href) {
+        link.classList.add('text-primary-500');
+      }
+    });
+
+    window.addEventListener('popstate', function (event) {
+      const newURL = event.state || window.location.href;
+      headerLinks.forEach((link) => {
+        if (link.href === newURL) {
+          link.classList.add('text-primary-500');
+        } else {
+          link.classList.remove('text-primary-500');
+        }
+      });
+    });
+  });
+</script>

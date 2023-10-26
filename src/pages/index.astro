@@ -1,0 +1,194 @@
+---
+import Layout from '../layouts/Layout.astro';
+import FeatureCard from '../components/FeatureCard.astro';
+import type { Props } from '../components/FeatureCard.astro';
+
+const features: Props[] = [
+	{
+		icon: 'playlist-plus',
+		title: 'Pencatatan Transaksi',
+		description: 'Mencatat setiap transaksi pelanggan, termasuk jenis cucian, jumlah, tanggal estimasi selesai, serta pembayaran pelanggan.',
+	},
+  {
+		icon: 'washing-machine',
+		title: 'Kelola Layanan',
+		description: 'Mengelola laynana laundry yang ditawarkan oleh bisnis Anda, termasuk menambah dan mengurangi jenis jasa, serta memperbarui harga.',
+	},
+	{
+		icon: 'file-chart',
+		title: 'Laporan Lengkap',
+		description: 'Menyediakan laporan terperinci tentang kinerja bisnis Anda, termasuk penjualan, pembayaran, pengeluaran dan laba rugi.',
+	},
+	{
+		icon: 'printer-pos',
+		title: 'Cetak Nota',
+		description: 'Mencetak nota pembayaran setelah setiap transaksi, sehingga pelanggan memiliki bukti pembayaran yang jelas.',
+	},
+	{
+		icon: 'cash',
+		title: 'Pencatatan Pengeluaran',
+		description: 'Mencatat setiap pengeluaran yang terkait dengan bisnis Anda, memudahkan dalam memonitor dan mengontrol pengeluaran.',
+	},
+	{
+		icon: 'store',
+		title: 'Manajemen Outlet',
+		description: 'Mengatur dan mengelola beberapa outlet laundry Anda dalam satu aplikasi, memudahkan koordinasi antar cabang.',
+	},
+];
+
+
+const packages = [
+  {
+    name: 'Free',
+    price: 'Gratis!',
+    description: 'tanpa batas waktu, tanpa batas transaksi dan tanpa iklan',
+    features: [
+      'Sistem kasir (POS)',
+      'Kelola karyawan',
+      'Kelola pelanggan',
+      'Cetak nota',
+      'Bagikan nota digital',
+      '1 outlet laundry',
+      'Cek laporan transaksi selama 2 bulan',
+      'Cek laporan pembayaran selama 2 bulan',
+    ],
+  },
+  {
+    name: 'Randori Pro',
+    discountPrice: 'Rp65.000',
+    price: 'Rp50.000',
+    description: 'per bulan, dibayar tahunan',
+    features: [
+      'Sistem kasir (POS)',
+      'Kelola karyawan',
+      'Kelola pelanggan',
+      'Cetak nota',
+      'Bagikan nota digital',
+      'Lebih dari 1 outlet laundry',
+      'Cek laporan transaksi tanpa batas waktu',
+      'Cek laporan pembayaran tanpa batas waktu',
+      'Pencatatan pengeluaran',
+      'Laporan pengeluaran',
+      'Laporan laba rugi',
+    ],
+  },
+];
+
+const firstFeatures = features.slice(0, features.length / 2);
+const lastFeatures = features.slice(features.length / 2);
+---
+
+<Layout
+  title="Randori - Aplikasi Kasir Bisnis Laundry"
+  description="Temukan cara terbaik untuk mengelola bisnis laundry Anda dengan solusi manajemen bisnis yang andal dan efisien"
+>
+  <div class="flex flex-col md:flex-row pt-8 items-center">
+    <div class="pr-0 md:pr-8 text-center md:text-left pb-4 md:pb-0">
+      <h1 class="text-5xl font-bold mb-7 font-['Poppins']">
+        Aplikasi Kasir Bisnis Laundry
+      </h1>
+      <p class="text-xl font-medium mb-4">
+        Temukan cara terbaik untuk mengelola bisnis laundry Anda dengan
+        solusi manajemen bisnis yang andal dan efisien.
+      </p>
+      <a
+        href="https://play.google.com/store/apps/details?id=id.randori.app"
+        target="_blank"
+        rel="noopener noreferer"
+        class="inline-block"
+      >
+        <img
+          src="playstore.webp"
+          alt="Download Randori"
+          height="64"
+          width="164"
+        />
+      </a>
+    </div>
+    <img
+      src="dashboard.webp"
+      width="256"
+      height="554"
+      alt="Dashboard Randori"
+    />
+  </div>
+  <section class="pt-12" id="fitur">
+    <h1 class="text-3xl font-bold mb-1 font-['Poppins'] text-center">
+      Fitur Terbaik Untuk Solusi Bisnis Venue Olahraga Anda
+    </h1>
+    <p class="font-medium text-lg text-center max-w-3xl mx-auto">
+      Randori menyediakan fitur-fitur terbaik untuk membantu bisnis Anda
+      berjalan lebih efisien dan menguntungkan.
+    </p>
+    <div class="grid grid-cols-1 gap-4 md:flex mt-12">
+      <div class="flex-1">
+        {
+          firstFeatures.map((feature) => (
+            <FeatureCard
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          ))
+        }
+      </div>
+      <div class="self-center text-center md:w-64">
+        <img
+          src="dashboard.webp"
+          width="160"
+          height="320"
+          class="inline-block md:block mx-auto"
+          alt="Dashboard Randori"
+        />
+        <img
+          src="tambah-transaksi.webp"
+          width="160"
+          height="320"
+          class="inline-block md:block mx-auto"
+          alt="Tambah Transaksi Randori"
+        />
+      </div>
+      <div class="flex-1">
+        {
+          lastFeatures.map((feature) => (
+            <FeatureCard
+              icon={feature.icon}
+              title={feature.title}
+              description={feature.description}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+  <section class="pt-12" id="paket-dan-harga">
+    <h2 class="text-3xl font-bold mb-1 font-['Poppins'] text-center">
+      Harga Terbaik Untuk Fitur Terbaik
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-12 max-w-3xl mx-auto">
+      {
+        packages.map((pkg) => (
+          <div class="rounded-lg shadow-lg mt-4 py-12 px-8 pb-0 text-center overflow-hidden">
+            <h3 class="font-['Poppins'] font-bold text-2xl">{pkg.name}</h3>
+            <div class="py-8">
+              <strike
+                class={`text-lg font-medium ${
+                  !pkg.discountPrice ? "invisible" : ""
+                }`}
+              >
+                {pkg.discountPrice || pkg.price}
+              </strike>
+              <h2 class="font-['Poppins'] font-bold text-3xl">{pkg.price}</h2>
+              <p class="h-12">{pkg.description}</p>
+            </div>
+            <ul>
+              {pkg.features.map((feature) => (
+                <li class="mb-6 font-medium">{feature}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+</Layout>
