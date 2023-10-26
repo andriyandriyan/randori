@@ -2,6 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import FeatureCard from '../components/FeatureCard.astro';
 import type { Props } from '../components/FeatureCard.astro';
+import Gallery from '../components/Gallery.astro';
 
 const features: Props[] = [
 	{
@@ -12,7 +13,7 @@ const features: Props[] = [
   {
 		icon: 'washing-machine',
 		title: 'Kelola Layanan',
-		description: 'Mengelola laynana laundry yang ditawarkan oleh bisnis Anda, termasuk menambah dan mengurangi jenis jasa, serta memperbarui harga.',
+		description: 'Mengelola layanan laundry yang ditawarkan oleh bisnis Anda, termasuk menambah dan mengurangi jenis jasa, serta memperbarui harga.',
 	},
 	{
 		icon: 'file-chart',
@@ -93,22 +94,19 @@ const lastFeatures = features.slice(features.length / 2);
       </p>
       <a
         href="https://play.google.com/store/apps/details?id=id.randori.app"
-        target="_blank"
-        rel="noopener noreferer"
-        class="inline-block"
       >
         <img
-          src="playstore.webp"
-          alt="Download Randori"
+          src="https://play.google.com/intl/id/badges/static/images/badges/id_badge_web_generic.png"
+          alt="Temukan di Google Play"
           height="64"
           width="164"
-        />
+        >
       </a>
     </div>
     <img
       src="dashboard.webp"
       width="256"
-      height="554"
+      height="512"
       alt="Dashboard Randori"
     />
   </div>
@@ -120,46 +118,16 @@ const lastFeatures = features.slice(features.length / 2);
       Randori menyediakan fitur-fitur terbaik untuk membantu bisnis Anda
       berjalan lebih efisien dan menguntungkan.
     </p>
-    <div class="grid grid-cols-1 gap-4 md:flex mt-12">
-      <div class="flex-1">
-        {
-          firstFeatures.map((feature) => (
-            <FeatureCard
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))
-        }
-      </div>
-      <div class="self-center text-center md:w-64">
-        <img
-          src="dashboard.webp"
-          width="160"
-          height="320"
-          class="inline-block md:block mx-auto"
-          alt="Dashboard Randori"
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mt-12 mb-6">
+      {features.map((feature) => (
+        <FeatureCard
+          icon={feature.icon}
+          title={feature.title}
+          description={feature.description}
         />
-        <img
-          src="tambah-transaksi.webp"
-          width="160"
-          height="320"
-          class="inline-block md:block mx-auto"
-          alt="Tambah Transaksi Randori"
-        />
-      </div>
-      <div class="flex-1">
-        {
-          lastFeatures.map((feature) => (
-            <FeatureCard
-              icon={feature.icon}
-              title={feature.title}
-              description={feature.description}
-            />
-          ))
-        }
-      </div>
+      ))}
     </div>
+    <Gallery />
   </section>
   <section class="pt-12" id="paket-dan-harga">
     <h2 class="text-3xl font-bold mb-1 font-['Poppins'] text-center">

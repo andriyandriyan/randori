@@ -10,14 +10,14 @@ export interface Props {
 
 const { icon, title, description } = Astro.props;
 ---
-<div class="bg-white shadow-lg rounded-lg mb-8 p-4 flex items-center">
+<div class="bg-white shadow-lg rounded-lg p-4 flex items-center">
   <div class="mr-6">
     <div class="w-14 h-14 rounded-full bg-primary-500 flex items-center justify-center">
       <Icon name={`mdi:${icon}`} class="text-white text-4xl" />
     </div>
   </div>
   <div>
-    <h4 class="font-['Poppins'] font-semibold text-lg mb-2">{title}</h4>
+    <h2 class="font-['Poppins'] font-semibold text-lg mb-2">{title}</h2>
     <p>{description}</p>
   </div>
 </div>

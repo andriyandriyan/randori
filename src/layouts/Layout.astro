@@ -60,7 +60,7 @@ const { title, description, image, imageWidth, imageHeight, full } = Astro.props
 	<body>
 		<Header />
 		<main class={`mx-auto relative pb-8 ${full ? '' : 'max-w-screen-lg'}`}>
-			<div class={full ? '' : 'p-4 container'}>
+			<div class={full ? '' : 'p-4 container mx-auto'}>
 				<slot />
 			</div>
 		</main>

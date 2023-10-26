@@ -1,0 +1,122 @@
+---
+// @ts-ignore
+import { Icon } from 'astro-icon/components';
+
+interface AppImage {
+  title: string;
+  path: string;
+}
+
+const images: AppImage[] = [
+  {
+    title: 'Dashboard',
+    path: 'dashboard.webp',
+  },
+  {
+    title: 'Kelola Jasa',
+    path: 'kelola-jasa.webp',
+  },
+  {
+    title: 'Tambah Transaksi',
+    path: 'tambah-transaksi.webp',
+  },
+  {
+    title: 'Data Transaksi',
+    path: 'data-transaksi.webp',
+  },
+  {
+    title: 'Laporan Transaksi',
+    path: 'laporan-transaksi.webp',
+  },
+  {
+    title: 'Laporan Pembayaran',
+    path: 'laporan-pembayaran.webp',
+  },
+  {
+    title: 'Laporan Pengeluaran',
+    path: 'laporan-pengeluaran.webp',
+  },
+  {
+    title: 'Data Pengeluaran',
+    path: 'data-pengeluaran.webp',
+  },
+  {
+    title: 'Laporan Laba Rugi',
+    path: 'laporan-laba-rugi.webp',
+  },
+  {
+    title: 'Multi Outlet',
+    path: 'multi-outlet.webp',
+  },
+];
+---
+<div class="swiper !pb-4 group">
+  <div class="swiper-wrapper">
+    {images.map((image, i) => (
+      <div class="swiper-slide">
+        <img
+          src={image.path}
+          width="192"
+          height="384"
+          alt={image.title}
+          class="mx-auto"
+        />
+      </div>
+    ))}
+  </div>
+  <div class="swiper-pagination flex gap-2 justify-center bottom-0"></div>
+  <button
+    type="button"
+    class="swiper-button-prev opacity-0 group-hover:opacity-100 absolute z-10 transition-all left-2 top-1/2"
+    aria-label="Previous slide"
+  >
+    <Icon name="mdi:arrow-left-circle" class="text-primary-500 text-4xl" />
+  </button>
+  <button
+    type="button"
+    class="swiper-button-next opacity-0 group-hover:opacity-100 absolute z-10 transition-all right-2 top-1/2"
+    aria-label="Next slide"
+  >
+    <Icon name="mdi:arrow-right-circle" class="text-primary-500 text-4xl" />
+  </button>
+</div>
+
+<script>
+
+  import Swiper from 'swiper';
+  import { Navigation, Pagination } from 'swiper/modules';
+  import 'swiper/css';
+
+  new Swiper('.swiper', {
+    modules: [Navigation, Pagination],
+    loop: true,
+    slidesPerView: 2,
+    slidesPerGroup: 2,
+    breakpoints: {
+      1024: {
+        slidesPerView: 5,
+        slidesPerGroup: 5,
+      },
+      640: {
+        slidesPerView: 4,
+        slidesPerGroup: 4,
+      },
+      480: {
+        slidesPerView: 3,
+        slidesPerGroup: 3,
+      },
+    },
+    pagination: {
+      el: '.swiper-pagination',
+      bulletClass: 'inline-block h-3 w-3 bg-primary-300 rounded-full transition-all',
+      bulletActiveClass: '!bg-primary-500 !w-9',
+      clickable: true,
+      clickableClass: 'cursor-hover',
+      bulletElement: 'button',
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
