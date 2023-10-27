@@ -53,7 +53,7 @@ const images: AppImage[] = [
 ---
 <div class="swiper !pb-4 group">
   <div class="swiper-wrapper">
-    {images.map((image, i) => (
+    {images.map(image => (
       <div class="swiper-slide">
         <Image
           src={image.path}
