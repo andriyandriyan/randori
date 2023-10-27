@@ -111,8 +111,9 @@ const images: AppImage[] = [
       bulletClass: 'inline-block h-3 w-3 bg-primary-300 rounded-full transition-all',
       bulletActiveClass: '!bg-primary-500 !w-9',
       clickable: true,
-      clickableClass: 'cursor-hover',
-      bulletElement: 'button',
+      renderBullet: function (index, className) {
+        return `<button type="button" aria-label="Go to slide ${index + 1}" class="${className}"></button>`;
+      }
     },
     navigation: {
       nextEl: '.swiper-button-next',
