@@ -6,6 +6,7 @@ import '@fontsource/raleway/latin-400.css';
 import '@fontsource/raleway/latin-500.css';
 import Header from '../components/Header.astro';
 import { SEO } from 'astro-seo';
+import { Image } from 'astro:assets';
 
 const gtmID = import.meta.env.PUBLIC_GTM_ID;
 
@@ -67,8 +68,15 @@ const { title, description, image, imageWidth, imageHeight, full } = Astro.props
 		<footer>
 			<div class="max-w-screen-lg mx-auto md:flex md:py-8 px-4">
 				<div class="md:w-2/3 md:pr-4 pb-6 md:pb-0">
-					<img src="/logo-randori-hor.webp" alt="Logo Randori" class="h-8 w-auto md:h-10 mb-4" width="262"
-          height="40">
+					<Image
+						src="/logo-randori-hor.webp"
+						alt="Logo Randori"
+						class="h-8 w-auto md:h-10 mb-4"
+						width="262"
+						height="40"
+						loading="lazy"
+          	decoding="async"
+					>
 					<p class="font-medium">Randori adalah sebuah aplikasi kasir pengelola bisnis laundry berbasis android yang menyediakan berbagai fitur untuk membantu pemilik laundry dalam mengelola operasional bisnis mereka dengan lebih efisien.</p>
 				</div>
 				<div class="md:w-1/3">
