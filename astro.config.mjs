@@ -1,8 +1,8 @@
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
+import playformCompress from '@playform/compress';
 import { defineConfig } from 'astro/config';
-import compress from 'astro-compress';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
 
@@ -16,7 +16,7 @@ export default defineConfig({
         mdi: ['*'],
       },
     }),
-    compress(),
+    playformCompress(),
     sitemap(),
     robotsTxt(),
     partytown({
