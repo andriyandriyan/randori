@@ -1,0 +1,37 @@
+---
+import '@fontsource/poppins/latin-400.css';
+import '@fontsource/poppins/latin-600.css';
+import '@fontsource/poppins/latin-700.css';
+import '@fontsource/raleway/latin-400.css';
+import '@fontsource/raleway/latin-500.css';
+import { SEO } from 'astro-seo';
+import TrackTransaction from '../components/TrackTransaction.svelte';
+const apiUrl = import.meta.env.PUBLIC_API_URL;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/site.webmanifest">
+		<meta name="theme-color" content="#ffffff">
+		<meta name="generator" content={Astro.generator} />
+    <SEO
+      title="Tracking Laundry - Randori"
+      description="Tracking Laundry - Randori - Aplikasi Kasir BIsnis Laundry"
+    />
+	</head>
+	<body>
+    <TrackTransaction client:only="svelte" apiUrl={apiUrl} />
+	</body>
+</html>
+<style is:global>
+	html {
+		color: #101329;
+	}
+</style>
