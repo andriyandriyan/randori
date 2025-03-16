@@ -1,8 +1,8 @@
 import partytown from '@astrojs/partytown';
 import sitemap from '@astrojs/sitemap';
 import svelte from '@astrojs/svelte';
-import tailwind from '@astrojs/tailwind';
 import playformCompress from '@playform/compress';
+import tailwindcss from '@tailwindcss/vite';
 import { defineConfig } from 'astro/config';
 import icon from 'astro-icon';
 import robotsTxt from 'astro-robots-txt';
@@ -11,7 +11,6 @@ import robotsTxt from 'astro-robots-txt';
 export default defineConfig({
   site: 'https://randori.id',
   integrations: [
-    tailwind(),
     icon({
       include: {
         mdi: ['*'],
@@ -27,4 +26,9 @@ export default defineConfig({
     }),
     svelte(),
   ],
+  vite: {
+    plugins: [
+      tailwindcss(),
+    ],
+  },
 });

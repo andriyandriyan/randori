@@ -103,8 +103,8 @@ const { title, description, image, imageWidth, imageHeight, full } = Astro.props
 	}
 </style>
 
-<script async type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${gtmID}`}></script>
-<script type="text/partytown">
+<script is:inline type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=${gtmID}`}></script>
+<script is:inline type="text/partytown">
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());

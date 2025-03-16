@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { openModal } from 'svelte-modals';
+  import { modals } from 'svelte-modals';
   import type { ReceiptSetting, TransactionItem, TransactionStatus } from '../interfaces';
   import IconArchive from './icons/IconArchive.svelte';
   import IconDownload from './icons/IconDownload.svelte';
@@ -15,7 +15,7 @@
   export let transactionStatus: TransactionStatus;
 
   const showImages = (imageUrls: string[]) => {
-    openModal(ImageModal, { imageUrls });
+    modals.open(ImageModal, { imageUrls });
   };
 </script>
 
@@ -67,7 +67,7 @@
     </div>
     {#if item.images.length}
       <div class="ml-auto">
-        <button type="button" class="w-8 h-8 flex items-center justify-center rounded-sm bg-primary-500 relative" on:click={() => showImages(item.images.map(image => image.image))}>
+        <button type="button" class="w-8 h-8 flex items-center justify-center rounded-sm bg-primary-500 relative" onclick={() => showImages(item.images.map(image => image.image))}>
           <span class="absolute -top-1 -right-1 z-[2] bg-red-500 rounded-full px-0.5 min-w-[16px] h-4 flex items-center justify-center border border-white">
             <span class="text-white font-medium text-[10px] leading-[10px]">
               {item.images.length}
