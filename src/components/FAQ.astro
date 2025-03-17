@@ -1,0 +1,99 @@
+---
+import { Icon } from 'astro-icon/components';
+
+const faqs = [
+  {
+    question: 'Apakah aplikasi ini gratis?',
+    answer: 'Ya, aplikasi ini tersedia dalam versi Gratis dan Pro. Versi Gratis tidak memiliki batasan waktu atau jumlah transaksi.',
+  },
+  {
+    question: 'Apa perbedaan antara versi Gratis dan Pro?',
+    answer: 'Versi Gratis memiliki fitur terbatas, sementara versi Pro memberikan akses ke semua fitur Pro.',
+  },
+  {
+    question: 'Apakah saya bisa mencoba versi Pro terlebih dahulu?',
+    answer: 'Ya, Anda bisa mencoba versi Pro secara gratis selama 14 hari.',
+  },
+  {
+    question: 'Apakah saya bisa menggunakan aplikasi di lebih dari satu perangkat?',
+    answer: 'Ya, baik versi Gratis maupun Pro bisa digunakan di beberapa perangkat dengan akun yang sama.',
+  },
+  {
+    question: 'Apakah saya bisa menambahkan beberapa cabang outlet dalam satu akun?',
+    answer: 'Ya, untuk menambahkan beberapa outlet, Anda perlu berlangganan versi Pro.',
+  },
+  {
+    question: 'Apakah ada batasan jumlah cabang dalam satu akun?',
+    answer: 'Tidak, jumlah cabang tidak dibatasi, Anda bisa menambahkan sebanyak yang diperlukan.',
+  },
+  {
+    question: 'Apakah saya bisa menambahkan karyawan?',
+    answer: 'Ya, baik versi Gratis maupun Pro memungkinkan Anda menambahkan beberapa karyawan.',
+  },
+  {
+    question: 'Apakah ada batasan jumlah karyawan?',
+    answer: 'Tidak, jumlah karyawan tidak dibatasi.',
+  },
+  {
+    question: 'Bagaimana cara membatasi akses karyawan?',
+    answer: 'Saat menambahkan karyawan, Anda dapat mengatur hak akses sesuai kebutuhan.',
+  },
+  {
+    question: 'Apa yang terjadi jika saya kembali ke versi Gratis setelah berlangganan Pro?',
+    answer: 'Data Anda tetap aman, tetapi fitur Pro tidak bisa digunakan hingga Anda berlangganan kembali.',
+  },
+];
+---
+<section class="py-12" id="faq">
+  <div class="container px-4 md:px-6">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="space-y-2">
+        <h2 class="text-3xl font-bold mb-1 font-['Poppins'] text-center">
+          Pertanyaan yang Sering Diajukan
+        </h2>
+        <p class="text-xl">
+          Segala sesuatu yang perlu Anda ketahui tentang Randori
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto grid max-w-5xl gap-6 py-12">
+      {faqs.map(faq => (
+        <div class="rounded bg-white overflow-hidden shadow-lg">
+          <button type="button" class="w-full text-left px-6 py-4 faq-item">
+            <div class="flex justify-between items-center">
+              <h3 class="text-lg font-bold">{faq.question}</h3>
+              <Icon name="mdi:chevron-down" size={24} class="transition" />
+            </div>
+            <p class="mt-2 hidden">{faq.answer}</p>
+          </button>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const faqItems = document.querySelectorAll('.faq-item');
+
+    faqItems.forEach(item => {
+      item.addEventListener('click', () => {
+        const answer = item.querySelector('p');
+        const icon = item.querySelector('svg');
+        if (answer?.classList.contains('hidden')) {
+          faqItems.forEach(el => {
+            const elAnswer = el.querySelector('p');
+            elAnswer?.classList.add('hidden');
+            const elIcon = el.querySelector('svg');
+            elIcon?.classList.remove('rotate-180')
+          });
+          answer.classList.remove('hidden');
+          icon?.classList.add('rotate-180');
+        } else {
+          answer?.classList.add('hidden');
+          icon?.classList.remove('rotate-180');
+        }
+      });
+    });
+  });
+</script>

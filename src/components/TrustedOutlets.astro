@@ -1,0 +1,84 @@
+---
+import { Image } from 'astro:assets';
+
+const outlets = [
+  {
+    name: 'SB LAUNDRY',
+    logo: 'cluhmqyeu000d9nuf61ro8c5p.webp',
+  },
+  {
+    name: 'Londra Londri',
+    logo: 'cm35o62xd000fwguf97z80olh.webp',
+  },
+  {
+    name: 'One Laundry',
+    logo: 'cm4mdq29u002h7tuf1rmzh4z4.webp',
+  },
+  {
+    name: 'CINTA LAUNDRY',
+    logo: 'cly2cs55b002tsauf42gmbsdm.webp',
+  },
+  {
+    name: 'ADZRIEL LAUNDRY',
+    logo: 'cm83uwdbw002qhiuf76ioaa8g.webp',
+  },
+  {
+    name: 'Laundry HeRo',
+    logo: 'cm6rrwano00ddsiufdzkrflfb.webp',
+  },
+  {
+    name: 'AKIM LAUNDRY',
+    logo: 'cm38eh7yr004dwguf9ykkdw2q.webp',
+  },
+  {
+    name: 'DMJ LAUNDRY Ciganitri',
+    logo: 'cm4guvd9x00mtpnufe7oq6k6n.webp',
+  },
+  {
+    name: 'Sameday',
+    logo: 'clwriu2qv000z8qufcwyyd0le.webp',
+  },
+  {
+    name: 'Lafatching Laundry',
+    logo: 'clz7dd6k2005ns8uf5w0xdptz.webp',
+  },
+  {
+    name: 'LEON Laundry 01',
+    logo: 'cm7vtgi2200lc5uuf0o7yf63l.webp',
+  },
+  {
+    name: 'Gogoo Laundry',
+    logo: 'cm2mklt23002yeaufdqs43zmv.webp',
+  },
+];
+
+const baseImageUrl = 'https://lzwpxlxbujyaxzibgppv.supabase.co/storage/v1/object/public/randori/logos'
+
+---
+<section class="py-12">
+  <div class="container px-4 md:px-6">
+    <div class="flex flex-col items-center justify-center space-y-4 text-center">
+      <div class="space-y-2">
+        <h2 class="text-3xl font-bold font-['poppins']">
+          Dipercaya lebih dari 2.000 pemilik bisnis laundry
+        </h2>
+        <p class="max-w-[700px]">
+          Bergabunglah dengan ribuan bisnis laundry yang mengandalkan Randori setiap hari
+        </p>
+      </div>
+    </div>
+    <div class="mx-auto grid grid-cols-3 items-center gap-8 py-8 md:grid-cols-4 lg:grid-cols-6 md:gap-12">
+      {outlets.map(outlet => (
+        <div class="flex items-center justify-center">
+          <Image
+            src={`${baseImageUrl}/${outlet.logo}`}
+            alt={`Logo ${outlet.name}`}
+            width={80}
+            height={80}
+            class="grayscale transition-all hover:grayscale-0"
+          />
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
