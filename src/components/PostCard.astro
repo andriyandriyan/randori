@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import dayjs from 'dayjs';
+
+export interface Props {
+	post: CollectionEntry<'blog'>;
+}
+
+const { post } = Astro.props;
+const { image, title, publishDate } = post.data;
+---
+<a href={`/blog/${post.id}`} class="bg-white shadow-lg rounded-lg overflow-hidden group">
+  <img src={image} alt={title} class="aspect-video" />
+  <div class="p-4">
+    <h2 class="font-['Poppins'] mb-2 font-semibold text-lg group-hover:text-primary-500">
+      {title}
+    </h2>
+    <span class="text-sm font-medium">{dayjs(publishDate).format('DD MMM YYYY')}</span>
+  </div>
+</a>

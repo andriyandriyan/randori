@@ -4,9 +4,10 @@ import '@fontsource/poppins/latin-600.css';
 import '@fontsource/poppins/latin-700.css';
 import '@fontsource/raleway/latin-400.css';
 import '@fontsource/raleway/latin-500.css';
-import Header from '../components/Header.astro';
 import { SEO } from 'astro-seo';
 import { Image } from 'astro:assets';
+import Header from '~/components/Header.astro';
+import '../styles/global.css';
 
 const gtmID = import.meta.env.PUBLIC_GTM_ID;
 
@@ -84,6 +85,9 @@ const { title, description, image, imageWidth, imageHeight, full } = Astro.props
 					<ul>
 						<li class="mb-4 font-medium hover:text-primary-500">
 							<a href="/privacy-policy">Kebijakan Privasi</a>
+						</li>
+						<li class="mb-4 font-medium hover:text-primary-500">
+							<a href="/blog">Blog</a>
 						</li>
 						<li class="mb-4 font-medium hover:text-primary-500">
 							<a href="https://wa.me/628988798320?text=Halo%20Admin%20Randori,%20Saya%20butuh%20bantuan" target="_blank">Pusat Bantuan</a>

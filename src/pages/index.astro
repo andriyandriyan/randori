@@ -1,12 +1,12 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import FeatureCard from '../components/FeatureCard.astro';
-import type { Props } from '../components/FeatureCard.astro';
-import Gallery from '../components/Gallery.astro';
-import FAQ from '../components/FAQ.astro';
-import Stats from '../components/Stats.astro';
-import TrustedOutlets from '../components/TrustedOutlets.astro';
-import '../styles/global.css';
+import FAQ from '~/components/FAQ.astro';
+import type { Props } from '~/components/FeatureCard.astro';
+import FeatureCard from '~/components/FeatureCard.astro';
+import Gallery from '~/components/Gallery.astro';
+import Stats from '~/components/Stats.astro';
+import TrustedOutlets from '~/components/TrustedOutlets.astro';
+import Layout from '~/layouts/Layout.astro';
+
 
 const features: Props[] = [
 	{
@@ -157,7 +157,7 @@ const packages = [
       berjalan lebih efisien dan menguntungkan.
     </p>
     <div class="grid grid-cols-1 gap-4 md:grid-cols-2 mt-12 mb-6">
-      {features.map((feature) => (
+      {features.map(feature => (
         <FeatureCard
           icon={feature.icon}
           title={feature.title}

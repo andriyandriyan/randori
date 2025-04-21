@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import PostCard from '~/components/PostCard.astro';
+import Layout from '~/layouts/Layout.astro';
+
+const posts = await getCollection('blog');
+---
+<Layout
+  title="Artikel dan Tips Seputar Laundry dari Randori"
+	description="Artikel dan Tips Seputar Laundry dari Randori"
+  full
+>
+  <div class="text-center py-20 bg-primary-500">
+    <h1 class="font-bold font-['Poppins'] text-5xl text-white">
+      Artikel dan Tips Seputar Laundry
+    </h1>
+  </div>
+  <div class="flex md:grid grid-cols-3 gap-6 py-12 px-4 max-w-screen-lg mx-auto container">
+    {posts.map(post => <PostCard post={post} />)}
+  </div>
+</Layout>
