@@ -4,6 +4,9 @@ import PostCard from '~/components/PostCard.astro';
 import Layout from '~/layouts/Layout.astro';
 
 const posts = await getCollection('blog');
+const sortedPosts = posts.sort((a, b) => {
+  return b.data.publishDate.getTime() - a.data.publishDate.getTime();
+});
 ---
 <Layout
   title="Artikel dan Tips Seputar Laundry dari Randori"
@@ -16,6 +19,6 @@ const posts = await getCollection('blog');
     </h1>
   </div>
   <div class="flex md:grid grid-cols-3 gap-6 py-12 px-4 max-w-screen-lg mx-auto container">
-    {posts.map(post => <PostCard post={post} />)}
+    {sortedPosts.map(post => <PostCard post={post} />)}
   </div>
 </Layout>

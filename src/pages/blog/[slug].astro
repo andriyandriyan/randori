@@ -21,6 +21,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { title, description, image, publishDate } = post.data;
 const { Content } = await render(post);
+
+const otherPosts = await getCollection('blog', ({ id }) => id !== post.id);
+const sortedOtherPosts = otherPosts.slice(0, 10).sort((a, b) => {
+  return b.data.publishDate.getTime() - a.data.publishDate.getTime();
+});
+
 ---
 <Layout
   title={title}
@@ -29,7 +35,7 @@ const { Content } = await render(post);
   imageWidth={720}
   imageHeight={405}
 >
-  <div class="flex gap-4 pt-8">
+  <div class="flex flex-col md:flex-row gap-6 pt-8">
     <article class="prose prose-neutral max-w-2xl">
       <img src={image} alt={title} class="rounded-lg mb-8 aspect-video" width="672" height="378" />
       <h1 class="text-3xl font-semibold font-['Poppins'] !mb-0">
@@ -39,5 +45,28 @@ const { Content } = await render(post);
       <Content />
       <hr />
     </article>
+    <div>
+      <h2 class="text-xl text-primary-500 font-semibold font-['Poppins'] mb-6">
+        Artikel Terbaru
+      </h2>
+      {sortedOtherPosts.map(post => (
+        <a href={`/blog/${post.id}`} class="flex mb-4 group">
+          <img
+            src={post.data.image}
+            alt={post.data.title}
+            class="rounded-lg mr-4 aspect-square w-20 h-20 object-cover"
+            width="80"
+            height="80"
+            loading="lazy"
+          />
+          <div>
+            <h3 class="font-semibold font-['Poppins'] group-hover:text-primary-500">
+              {post.data.title}
+            </h3>
+            <span class="font-medium text-sm">{dayjs(post.data.publishDate).format('DD MMM YYYY')}</span>
+          </div>
+        </a>
+      ))}
+    </div>
   </div>
 </Layout>
