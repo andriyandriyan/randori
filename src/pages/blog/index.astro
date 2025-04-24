@@ -13,12 +13,12 @@ const sortedPosts = posts.sort((a, b) => {
 	description="Artikel dan Tips Seputar Laundry dari Randori"
   full
 >
-  <div class="text-center py-20 px-4 bg-primary-500">
-    <h1 class="font-bold font-['Poppins'] text-5xl text-white">
+  <div class="text-center md:px-0 md:py-20 py-8 px-4 bg-primary-500">
+    <h1 class="font-bold font-['Poppins'] md:text-5xl text-2xl text-white">
       Artikel dan Tips Seputar Laundry
     </h1>
   </div>
-  <div class="flex md:grid grid-cols-3 gap-6 py-12 px-4 max-w-screen-lg mx-auto container">
+  <div class="flex flex-col sm:grid sm:grid-cols-2 md:grid-cols-3 gap-6 py-12 px-4 max-w-screen-lg mx-auto container">
     {sortedPosts.map(post => <PostCard post={post} />)}
   </div>
 </Layout>

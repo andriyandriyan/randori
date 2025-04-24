@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import FAQ from '~/components/FAQ.astro';
 import type { Props } from '~/components/FeatureCard.astro';
 import FeatureCard from '~/components/FeatureCard.astro';
@@ -128,7 +129,7 @@ const packages = [
       <a
         href="https://play.google.com/store/apps/details?id=id.randori.app"
       >
-        <img
+        <Image
           src="https://play.google.com/intl/id/badges/static/images/badges/id_badge_web_generic.png"
           alt="Temukan di Google Play"
           height="64"
@@ -138,7 +139,7 @@ const packages = [
       </a>
     </div>
     <div class="w-64 h-[512px] flex-shrink-0">
-      <img
+      <Image
         src="/dashboard.webp"
         width="256"
         height="512"
