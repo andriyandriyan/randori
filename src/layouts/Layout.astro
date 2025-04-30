@@ -4,6 +4,7 @@ import '@fontsource/poppins/latin-600.css';
 import '@fontsource/poppins/latin-700.css';
 import '@fontsource/raleway/latin-400.css';
 import '@fontsource/raleway/latin-500.css';
+import Analytics from '@vercel/analytics/astro';
 import { SEO } from 'astro-seo';
 import { Image } from 'astro:assets';
 import Header from '~/components/Header.astro';
@@ -58,6 +59,7 @@ const { title, description, image, imageWidth, imageHeight, full } = Astro.props
 			}}
     />
 		<link rel="sitemap" href="/sitemap-index.xml">
+		<Analytics />
 	</head>
 	<body>
 		<Header />
@@ -114,11 +116,4 @@ const { title, description, image, imageWidth, imageHeight, full } = Astro.props
   gtag('js', new Date());
 
   gtag('config', {gtmID});
-</script>
-<script
-	is:inline
-  type="text/partytown"
-  data-website-id="681230890f82f775e07f6a4f"
-  data-domain="randori.id"
-  src="https://datafa.st/js/script.js">
 </script>
