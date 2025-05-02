@@ -2,6 +2,9 @@
 import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import dayjs from 'dayjs';
+import 'dayjs/locale/id';
+
+dayjs.locale('id');
 
 export interface Props {
 	post: CollectionEntry<'blog'>;

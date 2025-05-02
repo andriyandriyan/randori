@@ -24,9 +24,9 @@ const { title, description, image, publishDate } = post.data;
 const { Content } = await render(post);
 
 const otherPosts = await getCollection('blog', ({ id }) => id !== post.id);
-const sortedOtherPosts = otherPosts.slice(0, 10).sort((a, b) => {
+const sortedOtherPosts = otherPosts.sort((a, b) => {
   return b.data.publishDate.getTime() - a.data.publishDate.getTime();
-});
+}).slice(0, 10);
 
 ---
 <Layout
