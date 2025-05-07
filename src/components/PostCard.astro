@@ -14,7 +14,7 @@ const { post } = Astro.props;
 const { image, title, publishDate } = post.data;
 ---
 <a href={`/blog/${post.id}`} class="bg-white shadow-lg rounded-lg overflow-hidden group">
-  <Image src={image} alt={title} class="w-full aspect-video" width={315} height={177} />
+  <Image src={image} alt={title} class="w-full aspect-[3/2] object-cover" width={315} height={210} />
   <div class="p-4">
     <h2 class="font-['Poppins'] mb-2 font-semibold text-lg group-hover:text-primary-500">
       {title}
