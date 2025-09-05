@@ -145,7 +145,7 @@ export interface TransactionItemProcess {
 export interface Process {
   id: number;
   name: string;
-  icon: 'wash-machine' | 'hanger-2' | 'ironing';
+  icon: 'wash-machine' | 'hanger-2' | 'ironing' | 'stack-2' | 'archive-check';
 }
 
 export interface Outlet {

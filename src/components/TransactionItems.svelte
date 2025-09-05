@@ -1,12 +1,15 @@
 <script lang="ts">
+  import { Tooltip } from '@svelte-plugins/tooltips';
   import { modals } from 'svelte-modals';
   import type { ReceiptSetting, TransactionItem, TransactionStatus } from '../interfaces';
-  import IconArchive from './icons/IconArchive.svelte';
+  import IconArchiveCheck from './icons/IconArchiveCheck.svelte';
   import IconDownload from './icons/IconDownload.svelte';
   import IconHanger from './icons/IconHanger.svelte';
   import IconIroning from './icons/IconIroning.svelte';
   import IconMoped from './icons/IconMoped.svelte';
   import IconPhoto from './icons/IconPhoto.svelte';
+  import IconSquareCheckFilled from './icons/IconSquareCheckFilled.svelte';
+  import IconStack2 from './icons/IconStack2.svelte';
   import IconWashMachine from './icons/IconWashMachine.svelte';
   import ImageModal from './ImageModal.svelte';
 
@@ -47,23 +50,35 @@
         </div>
     {/if}
     <div class="w-6 h-6 flex items-center justify-center rounded-sm mr-1 {transactionStatus !== 'Penjemputan' ? 'bg-primary-500' : 'bg-gray-400'}">
-      <IconDownload />
+      <Tooltip content="Masuk">
+        <IconDownload />
+      </Tooltip>
     </div>
     {#each item.processes as process}
       <div class="w-6 h-6 flex items-center justify-center rounded-sm mr-1 {process.processedAt ? 'bg-primary-500' : 'bg-gray-400'}">
-        {#if process.process.icon === 'wash-machine'}
-          <IconWashMachine />
-        {/if}
-        {#if process.process.icon === 'hanger-2'}
-          <IconHanger />
-        {/if}
-        {#if process.process.icon === 'ironing'}
-          <IconIroning />
-        {/if}
+        <Tooltip content={process.process.name}>
+          {#if process.process.icon === 'wash-machine'}
+            <IconWashMachine />
+          {/if}
+          {#if process.process.icon === 'hanger-2'}
+            <IconHanger />
+          {/if}
+          {#if process.process.icon === 'ironing'}
+            <IconIroning />
+          {/if}
+          {#if process.process.icon === 'stack-2'}
+            <IconStack2 />
+          {/if}
+          {#if process.process.icon === 'archive-check'}
+            <IconArchiveCheck />
+          {/if}
+        </Tooltip>
       </div>
     {/each}
     <div class="w-6 h-6 flex items-center justify-center rounded-sm mr-1 {item.status === 'Selesai' ? 'bg-primary-500' : 'bg-gray-400'}">
-      <IconArchive />
+      <Tooltip content="Selesai">
+        <IconSquareCheckFilled />
+      </Tooltip>
     </div>
     {#if item.images.length}
       <div class="ml-auto">

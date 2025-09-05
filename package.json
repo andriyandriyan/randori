@@ -20,6 +20,7 @@
     "@fontsource/raleway": "^5.2.5",
     "@iconify-json/mdi": "^1.2.3",
     "@playform/compress": "^0.1.7",
+    "@svelte-plugins/tooltips": "^3.0.3",
     "@tailwindcss/vite": "^4.0.14",
     "@vercel/analytics": "^1.5.0",
     "astro": "5.7.4",
