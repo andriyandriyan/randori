@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import AppStoreButton from '~/components/AppStoreButton.astro';
 import FAQ from '~/components/FAQ.astro';
 import type { Props } from '~/components/FeatureCard.astro';
 import FeatureCard from '~/components/FeatureCard.astro';
@@ -53,17 +54,18 @@ const packages = [
       'Pencatatan transaksi tanpa batasan',
       'Kelola karyawan tanpa batas',
       'Kelola pelanggan',
-      'Deposit pelanggan',
       'Cetak nota',
       'Bagikan nota digital',
       '1 outlet laundry',
       'Cek laporan transaksi masuk selama 2 bulan',
       'Cek laporan transaksi lunas selama 2 bulan',
       'Cek laporan transaksi selesai selama 2 bulan',
+      'Cek laporan transaksi batal selama 2 bulan',
       'Cek laporan pembayaran selama 2 bulan',
       'Cek laporan deposit selama 2 bulan',
       'Cek laporan kasbon selama 2 bulan',
       'Cek laporan piutang selama 2 bulan',
+      'Aplikasi Android',
     ],
   },
   {
@@ -76,13 +78,21 @@ const packages = [
       'Pencatatan transaksi tanpa batasan',
       'Kelola karyawan tanpa batas',
       'Kelola pelanggan',
-      'Deposit pelanggan',
       'Cetak nota',
       'Bagikan nota digital',
+      'Ekspor data layanan',
+      'Ekspor data pelanggan',
+      'Kelola paket',
+      'Kelola bahan baku',
+      'Kelola promo',
+      'Kelola mesin',
       'Lebih dari 1 outlet laundry',
+      'Pengiriman file laporan ke email',
+      'Poin pelanggan',
       'Cek laporan transaksi masuk tanpa batas waktu',
       'Cek laporan transaksi lunas tanpa batas waktu',
       'Cek laporan transaksi selesai tanpa batas waktu',
+      'Cek laporan transaksi batal tanpa batas waktu',
       'Cek laporan pembayaran tanpa batas waktu',
       'Cek laporan deposit tanpa batas waktu',
       'Cek laporan kasbon tanpa batas waktu',
@@ -93,21 +103,28 @@ const packages = [
       'Pencatatan pengeluaran',
       'Antar/jemput transaksi',
       'Link tracking laundry',
+      'Pesan penagihan pelanggan',
       'Bayar piutang pelanggan sekaligus',
       'Penggajian karyawan',
       'Komisi karyawan',
       'Rekanan laundry',
+      'Nomor nota kustom',
+      'Laporan penggunaan bahan baku',
       'Laporan buku kas',
       'Laporan pemasukan',
       'Laporan pengeluaran',
       'Laporan layanan',
+      'Laporan transaksi paket',
       'Laporan pelanggan',
       'Laporan kurir',
       'Laporan komisi rekanan',
+      'Laporan promo',
+      'Laporan mesin',
       'Laporan estimasi transaksi',
       'Laporan transaksi terlambat',
       'Laporan komisi karyawan',
       'Laporan laba rugi',
+      'Aplikasi Android dan iOS',
     ],
   },
 ];
@@ -126,17 +143,27 @@ const packages = [
         Temukan cara terbaik untuk mengelola bisnis laundry Anda dengan
         solusi manajemen bisnis yang andal dan efisien.
       </p>
-      <a
-        href="https://play.google.com/store/apps/details?id=id.randori.app"
-      >
-        <Image
-          src="https://play.google.com/intl/id/badges/static/images/badges/id_badge_web_generic.png"
-          alt="Temukan di Google Play"
-          height="64"
-          width="164"
-          class="inline-block"
+      <div class="flex flex-col sm:flex-row gap-3 justify-center sm:justify-start">
+        <a
+          href="https://play.google.com/store/apps/details?id=id.randori.app"
         >
-      </a>
+          <Image
+            src="/playstore.png"
+            alt="Temukan di Google Play"
+            height="60"
+            width="202.5"
+            class="inline-block"
+          >
+        </a>
+        <a
+          href="https://apps.apple.com/id/app/randori-kasir-bisnis-laundry/id6759207229"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center gap-2"
+        >
+          <AppStoreButton />
+        </a>
+      </div>
     </div>
     <div class="w-64 h-[512px] flex-shrink-0">
       <img
